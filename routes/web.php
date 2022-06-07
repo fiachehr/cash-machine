@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CashTransactionController;
+use App\Http\Controllers\CardTransactionController;
+use App\Http\Controllers\BankTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+
+Route::get('/cash', [CashTransactionController::class, 'index'])->name('cash.index');
+Route::post('/cash/store', [CashTransactionController::class, 'store'])->name('cash.store');
+
+Route::get('/card', [CardTransactionController::class, 'index'])->name('card.index');
+Route::post('/card/store', [CardTransactionController::class, 'store'])->name('card.store');
+
+Route::get('/bank', [BankTransactionController::class, 'index'])->name('bank.index');
+Route::post('/bank/store', [BankTransactionController::class, 'store'])->name('bank.store');
+

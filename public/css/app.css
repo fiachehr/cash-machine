@@ -1,0 +1,24 @@
+body {
+    font-family: 'Bebas Neue', cursive;
+}
+ a{
+     font-size: 24px !important;
+ }
+
+.container {
+    display: flex;
+    flex-basis: 80%;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
+    border: 1px #cccccc solid;
+    padding: 1rem;
+    box-shadow: -2px 3px 18px -5px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: -2px 3px 18px -5px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: -2px 3px 18px -5px rgba(0, 0, 0, 0.51);
+}
+.content{
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: center;
+}
