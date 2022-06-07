@@ -1,8 +1,12 @@
 body {
     font-family: 'Bebas Neue', cursive;
 }
- a{
+ a,button{
      font-size: 24px !important;
+ }
+ label{
+     display: block !important;
+     font-size: 1.5rem;
  }
 
 .container {
@@ -21,4 +25,17 @@ body {
     flex-basis: 100%;
     flex-direction: column;
     align-items: center;
+}
+
+.form{
+    display: block;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.invalid-feedback{
+    display: block;
+}
+.input-group-text{
+    font-size: 1.5rem;
 }

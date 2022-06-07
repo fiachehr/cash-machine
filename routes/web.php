@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CashTransactionController;
 use App\Http\Controllers\CardTransactionController;
 use App\Http\Controllers\BankTransactionController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,7 @@ Route::post('/card/store', [CardTransactionController::class, 'store'])->name('c
 
 Route::get('/bank', [BankTransactionController::class, 'index'])->name('bank.index');
 Route::post('/bank/store', [BankTransactionController::class, 'store'])->name('bank.store');
+
+Route::get('/transaction/{id}', [TransactionController::class, 'transaction'])->name('transaction');
+
 

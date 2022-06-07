@@ -13,7 +13,7 @@ class CardTransactionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class CardTransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'amount' => 'required|integer|min:1',
+            'card-number' => 'required|digits:16|starts_with:4',
+            'card-holder' => 'required',
+            'cvv' => 'required|digits:3',
+            'expire-date' => 'required|after:+2 month'
+
         ];
     }
 }

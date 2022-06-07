@@ -2,83 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CashTransactionRequest;
+use App\Models\Transaction;
+use Carbon\Carbon;
 
 class CashTransactionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display Cash Form.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('cash');
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store Cash Resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CashTransactionRequest $request)
     {
-        //
+        $data['data'] = json_encode($request->except('_token'));
+        $data['type'] =  'cm';
+        $data['amount'] = $request->input('amount');
+
+        if($request->input('correct-amount') != null){
+
+            $data['amount'] = $request->input('correct-amount');
+        }
+        $data['ts_register'] = Carbon::now()->timestamp;
+        $transaction = Transaction::create($data);
+        return redirect()->to(route('transaction',$transaction->id));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

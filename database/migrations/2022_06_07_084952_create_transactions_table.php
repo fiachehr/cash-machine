@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->enum('type',['cm','cc','bt']);
+            $table->json('data');
+            $table->float('amount',5);
+            $table->integer('ts_register');
         });
     }
 
