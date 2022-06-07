@@ -46,6 +46,12 @@
             },
             format: 'YYYY-MM'
         });
+        $('#transaction-date').datetimepicker({
+            icons: {
+                time: 'far fa-clock'
+            },
+            format: 'YYYY-MM-DD'
+        });
     });
 </script>
 

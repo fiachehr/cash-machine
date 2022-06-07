@@ -28,7 +28,7 @@ class CardTransactionRequest extends FormRequest
             'card-number' => 'required|digits:16|starts_with:4',
             'card-holder' => 'required',
             'cvv' => 'required|digits:3',
-            'expire-date' => 'required|after:+2 month'
+            'expire-date' => 'required|after:+2 month',
 
         ];
     }

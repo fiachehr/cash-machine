@@ -19,4 +19,15 @@ class TransactionController extends Controller
         return view('transaction',compact('data','total'));
     }
 
+     /**
+     * Display a transactions list.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $data = Transaction::all();
+        return view('list',compact('data'));
+    }
+
 }

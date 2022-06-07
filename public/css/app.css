@@ -9,6 +9,10 @@ body {
      font-size: 1.5rem;
  }
 
+ .list{
+     font-size: 14px !important;
+ }
+
 .container {
     display: flex;
     flex-basis: 80%;

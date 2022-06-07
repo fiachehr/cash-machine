@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->enum('type',['cm','cc','bt']);
             $table->json('data');
-            $table->float('amount',5);
+            $table->integer('amount');
             $table->integer('ts_register');
         });
     }

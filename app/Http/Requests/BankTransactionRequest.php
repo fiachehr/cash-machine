@@ -13,7 +13,7 @@ class BankTransactionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class BankTransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'amount' => 'required|integer|min:1',
+            'account-number' => 'required|min:6|max:6',
+            'costumer-name' => 'required',
+            'transaction-date' => 'required|date_format:Y-m-d|after:yesterday'
         ];
     }
 }

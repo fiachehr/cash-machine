@@ -1,5 +1,5 @@
 @extends('masterpage')
-@section('pageTitle', 'Cash Money')
+@section('pageTitle', 'Credit Card')
 @section('content')
     <div class="form">
         {!! Form::open(['method' => 'POST', 'url' => 'card/store/']) !!}
