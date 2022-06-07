@@ -19,7 +19,7 @@ class CashTransactionController extends Controller
     }
 
     /**
-     * Store Cash Resource in storage.
+     * Store Cash Source In Storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

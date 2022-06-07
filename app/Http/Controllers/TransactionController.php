@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
     /**
-     * Display a transaction detail.
+     * Display A Transaction Detail.
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,7 +20,7 @@ class TransactionController extends Controller
     }
 
      /**
-     * Display a transactions list.
+     * Display Transactions List.
      *
      * @return \Illuminate\Http\Response
      */

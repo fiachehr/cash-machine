@@ -6,8 +6,6 @@ use App\Models\Transaction;
 use Closure;
 use Illuminate\Http\Request;
 
-use function PHPSTORM_META\override;
-
 class SourceAccessMiddleware
 {
     /**
@@ -19,20 +17,24 @@ class SourceAccessMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $total = Transaction::sum('amount');
         $amount = $request->input('amount');
-        if($request->input('correct-amount') != null){
+        if ($request->input('correct-amount') != null) {
             $amount = $request->input('correct-amount');
         }
-        $overflow = 20000 - ($amount+$total);
-        if($overflow < 0){
+        if(!preg_replace('/[^0-9]/', '', $amount)){
+            return redirect()->to(url('/'))->with('overflow', 'Amount Is Incorrect');
+        }
+
+        $total = Transaction::sum('amount');
+        $overflow = 20000 - ($amount + $total);
+        if ($overflow < 0) {
             $maxPayment = 20000 - $total;
-            if($maxPayment > 0){
+            if ($maxPayment > 0) {
                 $message = "The Machine Can Pay Maximum {$maxPayment}";
-            }else{
+            } else {
                 $message = "The Machine Can Not Pay";
             }
-            return redirect()->to(url('/'))->with('overflow',$message);
+            return redirect()->to(url('/'))->with('overflow', $message);
 
         }
         return $next($request);

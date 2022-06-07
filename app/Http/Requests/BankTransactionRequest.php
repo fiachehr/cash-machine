@@ -27,7 +27,17 @@ class BankTransactionRequest extends FormRequest
             'amount' => 'required|integer|min:1',
             'account-number' => 'required|min:6|max:6',
             'costumer-name' => 'required',
-            'transaction-date' => 'required|date_format:Y-m-d|after:yesterday'
+            'transaction-date' => 'required|date_format:Y-m-d|after:yesterday',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'account-number' => 'Account Number',
+            'costumer-name' => 'Costumer Name',
+            'transaction-date' => 'Transaction Date',
+        ];
+    }
+
 }

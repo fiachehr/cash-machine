@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class BankTransactionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display Bank Transfer Form.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +19,7 @@ class BankTransactionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store Bank Transfer Source In Storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

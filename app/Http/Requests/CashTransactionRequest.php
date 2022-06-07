@@ -24,8 +24,8 @@ class CashTransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount' => "nullable|prohibited_unless:correct-amount,null|required_without:correct-amount|in:1,5,10,50,100",
-            'correct-amount' => 'nullable|prohibited_unless:amount,null|required_without:amount|integer|max:10000|min:1',
+            'amount' => "nullable|prohibited_unless:correct-amount,null|required_without:correct-amount|in:1,5,10,50,100|integer",
+            'correct-amount' => 'nullable|prohibited_unless:amount,null|required_without:amount|integer|max:10000',
         ];
     }
 

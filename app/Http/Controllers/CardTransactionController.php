@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class CardTransactionController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display Credit Card Form.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +19,7 @@ class CardTransactionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store Credit Card Source In Storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -27,11 +27,11 @@ class CardTransactionController extends Controller
     public function store(CardTransactionRequest $request)
     {
         $data['data'] = json_encode($request->except('_token'));
-        $data['type'] =  'cc';
+        $data['type'] = 'cc';
         $data['amount'] = $request->input('amount');
         $data['ts_register'] = Carbon::now()->timestamp;
         $transaction = Transaction::create($data);
-        return redirect()->to(route('transaction',$transaction->id));
+        return redirect()->to(route('transaction', $transaction->id));
     }
 
 }
